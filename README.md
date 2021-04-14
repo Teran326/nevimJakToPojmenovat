@@ -1,0 +1,1 @@
+Databáze postav ze světa zaklínače.
