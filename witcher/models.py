@@ -31,7 +31,7 @@ class Profession(models.Model):
     poster = models.ImageField(upload_to=poster_path, blank=True, null=True, verbose_name="Poster")
 
     class Meta:
-        ordering = ["name", "profession"]
+        ordering = ["name", "profession", "race"]
 
     def __str__(self):
         return f"Name: {self.name}, profession: {self.profession}, description: {self.description}," \

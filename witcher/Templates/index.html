@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mt-3 mb-3 p-3" style="backgroud-color: #0075A2">
+    <div class="col-sm-12">
+        <h2 class="text-center">Postavy ze světa zaklínače</h2>
+    </div>
+</div>
+<div class="row">
+    {% for profession in professions %}
+    <div class="col-sm-4">
+        <div class="card">
+            {% if profession.poster %}
+            <img class="card-img-top" src="{{ profession.poster.url }}" alt="{{ profession.title }}">
+            {% endif %}
+            <div class="card-body">
+                <p class="card-text"><strong>Postava:</strong> {{ profession.name }}</p>
+                <p class="card-text"><strong>Rasa:</strong> {{ profession.race.race }}</p>
+                <a href="#" class="btn btn-primary">Podrobnosti</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <strong>Celkový počet postav:</strong> {{ num_professions }}
+    </div>
+</div>
+{% endblock %} 
