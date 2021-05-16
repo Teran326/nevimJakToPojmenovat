@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row mt-3 mb-3 p-3" style="backgroud-color: #0075A2">
+<div class="row mt-3 mb-3 p-3" style="background-color: #0075A2 !important">
     <div class="col-sm-12">
         <h2 class="text-center">Postavy ze světa zaklínače</h2>
     </div>
@@ -16,7 +16,10 @@
             <div class="card-body">
                 <p class="card-text"><strong>Postava:</strong> {{ profession.name }}</p>
                 <p class="card-text"><strong>Rasa:</strong> {{ profession.race.race }}</p>
-                <a href="#" class="btn btn-primary">Podrobnosti</a>
+                <button type="button" id="showPopis" class="btn btn-primary">Podrobnosti</button>
+                <div id="popis" style="padding-top: 10px; display: none">
+                    {{profession.description}}
+                </div>
             </div>
         </div>
     </div>
@@ -27,4 +30,19 @@
         <strong>Celkový počet postav:</strong> {{ num_professions }}
     </div>
 </div>
+<script>
+    let karty = document.querySelectorAll(".card");
+    karty.forEach(karta => {
+        let tlacitko = karta.querySelector("#showPopis");
+        let x = karta.querySelector("#popis");
+        tlacitko.addEventListener("click", () => {
+            if (x.style.display === "none") {
+                 x.style.display = "block";
+            }
+            else {
+                 x.style.display = "none";
+            }
+        })
+    })
+</script>
 {% endblock %} 
