@@ -18,7 +18,7 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
-def profession(request):
+def picture(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
@@ -31,4 +31,4 @@ def profession(request):
     }
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'profession.html', context=context)
+    return render(request, 'picture.html', context=context)
