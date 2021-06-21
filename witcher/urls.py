@@ -8,4 +8,5 @@ urlpatterns = [
     path('witcher/create/', views.ProfessionCreate.as_view(), name='profession-create'),
     path('witcher/<int:pk>/update/', views.ProfessionUpdate.as_view(), name='profession-update'),
     path('witcher/<int:pk>/delete/', views.ProfessionDelete.as_view(), name='profession-delete'),
+    path('clear_cache/', views.clear_cache),
 ]
