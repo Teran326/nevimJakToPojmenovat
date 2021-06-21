@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Editace postavy{% endblock %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col-sm-12 bg-warning">
+        <h2 class="display-4 text-center">Smazání postavy</h2>
+    </div>
+</div>
+<div class="row mt-5 mb-3">
+    <p>Určitě chcete smazat tuto postavu?: {{ profession.name }}?</p>
+</div>
+<form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Ano, smazat.">
+</form>
+{% endblock %}

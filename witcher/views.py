@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from witcher.models import Profession, Attachment
+from django.contrib.auth.decorators import permission_required
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
 
 
 def index(request):
@@ -32,3 +36,20 @@ def picture(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'picture.html', context=context)
+
+
+class ProfessionCreate(CreateView):
+    model = Profession
+    fields = ['profession', 'description', 'race', 'name', 'poster']
+    success_url = reverse_lazy('index')
+
+
+class ProfessionUpdate(UpdateView):
+    model = Profession
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+    success_url = reverse_lazy('index')
+
+
+class ProfessionDelete(DeleteView):
+    model = Profession
+    success_url = reverse_lazy('index')
