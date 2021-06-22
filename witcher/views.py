@@ -49,24 +49,26 @@ def picture(request):
 class ProfessionCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Profession
     fields = ['profession', 'description', 'race', 'name', 'poster']
+    template_name = 'witcher/profession_bootstrap_form.html'
     success_url = reverse_lazy('index')
     login_url = '/accounts/login/'
-    permission_required = 'movies.add_profession'
+    permission_required = 'witcher.add_profession'
 
 
 class ProfessionUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Profession
     fields = '__all__' # Not recommended (potential security issue if more fields added)
+    template_name = 'witcher/profession_bootstrap_form.html'
     success_url = reverse_lazy('index')
     login_url = '/accounts/login/'
-    permission_required = 'movies.change_profession'
+    permission_required = 'witcher.change_profession'
 
 
 class ProfessionDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Profession
     success_url = reverse_lazy('index')
     login_url = '/accounts/login/'
-    permission_required = 'movies.delete_profession'
+    permission_required = 'witcher.delete_profession'
 
 
 def error_404(request, exception=None):
